@@ -5,23 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Complaint Tracking System</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- ===== TOAST CONTAINER ===== -->
     <div class="toast-container" id="toastContainer"></div>
 
     <div class="app-container">
 
-        <!-- ===== HEADER ===== -->
         <header class="app-header">
             <div class="header-left">
                 <span class="logo-icon"><i class="fas fa-ticket-alt"></i></span>
@@ -36,48 +29,30 @@
                 </div>
             </div>
             <div class="header-stats">
-                <div class="stat-item">
-                    <span class="number" id="totalComplaints">0</span>
-                    <span class="label">Total</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number" id="openComplaints">0</span>
-                    <span class="label">Open</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number" id="resolvedComplaints">0</span>
-                    <span class="label">Resolved</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number" id="escalatedComplaints">0</span>
-                    <span class="label">Escalated</span>
-                </div>
+                <div class="stat-item"><span class="number" id="totalComplaints">0</span><span class="label">Total</span></div>
+                <div class="stat-item"><span class="number" id="openComplaints">0</span><span class="label">Open</span></div>
+                <div class="stat-item"><span class="number" id="resolvedComplaints">0</span><span class="label">Resolved</span></div>
+                <div class="stat-item"><span class="number" id="escalatedComplaints">0</span><span class="label">Escalated</span></div>
             </div>
         </header>
 
-        <!-- ===== VIEW TABS ===== -->
         <div class="view-tabs">
             <span class="tabs-label"><i class="fas fa-users-cog"></i> Switch Portal:</span>
             <button class="active" data-view="student">
-                <i class="fas fa-user-graduate"></i> Student
-                <span class="badge" id="studentBadge">0</span>
+                <i class="fas fa-user-graduate"></i> Student <span class="badge" id="studentBadge">0</span>
             </button>
             <button data-view="staff">
-                <i class="fas fa-tools"></i> Staff
-                <span class="badge" id="staffBadge">0</span>
+                <i class="fas fa-tools"></i> Staff <span class="badge" id="staffBadge">0</span>
             </button>
             <button data-view="hod">
-                <i class="fas fa-user-tie"></i> HOD
-                <span class="badge" id="hodBadge">0</span>
+                <i class="fas fa-user-tie"></i> HOD <span class="badge" id="hodBadge">0</span>
             </button>
             <button data-view="admin">
                 <i class="fas fa-user-shield"></i> Admin
             </button>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- ==================== STUDENT SECTION ======================== -->
-        <!-- ============================================================ -->
+        <!-- STUDENT -->
         <div id="studentSection" class="section active">
             <div class="section-header">
                 <h2><i class="fas fa-user-graduate"></i> Student Portal</h2>
@@ -88,7 +63,6 @@
                 </div>
             </div>
 
-            <!-- Submit Complaint -->
             <div class="form-card">
                 <h3 style="margin-bottom: 18px; color: var(--text-primary);">
                     <i class="fas fa-plus-circle" style="color: var(--primary);"></i> Submit New Complaint
@@ -127,7 +101,6 @@
                 </form>
             </div>
 
-            <!-- All Complaints (Live) -->
             <h3 style="margin: 25px 0 15px 0; display: flex; align-items: center; gap: 10px;">
                 <i class="fas fa-list-ul" style="color: var(--primary);"></i> All Complaints (Live)
                 <span style="font-size: 13px; font-weight: 400; color: var(--text-light);" id="studentCount"></span>
@@ -151,9 +124,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- ==================== STAFF SECTION ========================== -->
-        <!-- ============================================================ -->
+        <!-- STAFF -->
         <div id="staffSection" class="section">
             <div class="section-header">
                 <h2><i class="fas fa-tools"></i> Field Staff Portal</h2>
@@ -193,9 +164,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- ==================== HOD SECTION ============================ -->
-        <!-- ============================================================ -->
+        <!-- HOD -->
         <div id="hodSection" class="section">
             <div class="section-header">
                 <h2><i class="fas fa-user-tie"></i> HOD Portal</h2>
@@ -212,7 +181,7 @@
                 <i class="fas fa-info-circle"></i>
                 <div>
                     <strong>Escalated Tickets:</strong> Staff members who marked tickets as "Unable to Resolve" appear here.
-                    <strong>Reassign</strong> with a STRICT flag for immediate attention, or <strong>Escalate to Admin</strong> for higher-level intervention.
+                    <strong>Reassign</strong> with a STRICT flag or <strong>Escalate to Admin</strong>.
                 </div>
             </div>
 
@@ -271,9 +240,7 @@
             </div>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- ==================== ADMIN SECTION ========================== -->
-        <!-- ============================================================ -->
+        <!-- ADMIN -->
         <div id="adminSection" class="section">
             <div class="section-header">
                 <h2><i class="fas fa-user-shield"></i> Admin Portal</h2>
@@ -290,8 +257,8 @@
             <div class="alert alert-warning">
                 <i class="fas fa-exclamation-triangle"></i>
                 <div>
-                    <strong>Level-2 Escalations:</strong> Tickets that HOD could not resolve at department level.
-                    Admin can <strong>Resolve</strong> directly or <strong>Reassign</strong> with STRICT flag to any staff member.
+                    <strong>Level-2 Escalations:</strong> Tickets HOD could not resolve.
+                    Admin can <strong>Resolve</strong> or <strong>Reassign</strong> with STRICT flag.
                 </div>
             </div>
 
@@ -372,7 +339,6 @@
             </div>
         </div>
 
-        <!-- ===== FOOTER ===== -->
         <footer class="app-footer">
             <p>
                 <i class="fas fa-copyright"></i> 2026 Campus Complaint Tracking System | 
@@ -385,9 +351,6 @@
         </footer>
     </div>
 
-    <!-- ============================================================
-         FIREBASE SDK + CONFIG
-         ============================================================ -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { 
@@ -395,44 +358,27 @@
             doc, updateDoc, deleteDoc, getDocs, query, orderBy, setDoc
         } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-        // 🔥 ============================================
-        //    PASTE YOUR FIREBASE CONFIG BELOW
-        //    (Replace each PASTE_YOUR_... with your real value)
-        // ============================================
-         const firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyBmklOyWge7qXYBonZUpLgOF4tUrMkRkKE",
             authDomain: "campus-complaints-898e2.firebaseapp.com",
             projectId: "campus-complaints-898e2",
             storageBucket: "campus-complaints-898e2.firebasestorage.app",
             messagingSenderId: "550725657183",
             appId: "1:550725657183:web:8c1837b54e8eaa89fe71ea"
-    };
-        // Initialize Firebase
+        };
+
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Expose Firebase functions to global scope for script.js
         window.fb = {
-            db,
-            collection,
-            addDoc,
-            onSnapshot,
-            doc,
-            updateDoc,
-            deleteDoc,
-            getDocs,
-            query,
-            orderBy,
-            setDoc
+            db, collection, addDoc, onSnapshot, doc,
+            updateDoc, deleteDoc, getDocs, query, orderBy, setDoc
         };
 
         console.log('🔥 Firebase initialized');
         window.dispatchEvent(new Event('firebase-ready'));
     </script>
 
-    <!-- ============================================================
-         MAIN APPLICATION SCRIPT (deferred so it runs after HTML parses)
-         ============================================================ -->
     <script src="script.js" defer></script>
 </body>
 </html>
